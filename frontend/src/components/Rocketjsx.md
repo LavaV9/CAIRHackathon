@@ -1,3 +1,4 @@
+//the code is here if it is needed
 import React from 'react';
 import { motion } from 'framer-motion';
 import rocketImg from '../assets/cleanpng.png'; // i dont like this one just testing to see if it works lol
@@ -22,8 +23,3 @@ const Rocket = () => {
 };
 
 export default Rocket;
-
-
-
-
-
