@@ -1,57 +1,31 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from 'react';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (email.endsWith('@uncc.edu')) {
-      navigate('/home');
-    } else {
-      setError('Only UNCC emails allowed!');
-    }
-  };
-
   return (
-    <div className="flex items-center justify-center h-screen bg-black">
-      <motion.form
-        onSubmit={handleLogin}
-        className="flex flex-col gap-4 w-full max-w-md text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-5xl font-extrabold text-white font-[Inter] mb-6 tracking-wide">
-          Login to SYN
+    <section className="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center">
+      <div className="w-full bg-white rounded-lg shadow dark:border sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Sign in to your account
         </h1>
-
-        <input
-          type="email"
-          placeholder="Enter UNCC Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="px-4 py-2 text-black rounded outline-none"
-          required
-        />
-
-        {error && (
-          <p className="text-red-500 text-sm">{error}</p>
-        )}
-
-        <button
-          type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded text-white font-semibold transition"
-        >
-          Log In
-        </button>
-      </motion.form>
-    </div>
+        <form className="space-y-4 md:space-y-6">
+          <div>
+            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+            <input type="email" name="email" id="email" className="w-full p-2.5 rounded-lg border dark:bg-gray-700 dark:text-white" placeholder="name@uncc.edu" required />
+          </div>
+          <div>
+            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+            <input type="password" name="password" id="password" placeholder="••••••••" className="w-full p-2.5 rounded-lg border dark:bg-gray-700 dark:text-white" required />
+          </div>
+          <button type="submit" className="w-full text-white bg-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
 export default Login;
+
+
 
