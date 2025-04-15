@@ -1,39 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Rocket from '../components/Rocket';
-import StarsBackground from '../components/StarsBackground';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Home() {
-  const [showRocket, setShowRocket] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowRocket(false), 3500);
-    return () => clearTimeout(timer);
-  }, []);
-
+const Home = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black text-white font-sans">
-      <StarsBackground />
-      <AnimatePresence>{showRocket && <Rocket />}</AnimatePresence>
+    <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
+      <h1 className="text-5xl font-extrabold mb-4">Welcome to SYN</h1>
+      <p className="text-gray-400 mb-8 text-center max-w-xl">
+        Learn sign language with AI-powered real-time feedback.
+      </p>
 
-      {!showRocket && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
-        >
-          <h1 className="text-6xl font-bold tracking-tight text-white mb-6">Welcome to SYN</h1>
-          <p className="text-lg text-gray-300 max-w-xl mx-auto">
-            Learn sign language with real-time feedback, gesture correction, and a responsive interface.
-          </p>
-        </motion.div>
-      )}
+      <Link to="/camera">
+        <button className="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-lg text-lg">
+          Go to Camera
+        </button>
+      </Link>
     </div>
   );
-}
+};
 
 export default Home;
+
+
+
+
+
 
 
 
