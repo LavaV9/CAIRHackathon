@@ -36,7 +36,7 @@ const Login = () => {
           <button className="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold">
             <i className="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
           </button>
-        </div>
+          </div>
       </div>
     </div>
   );
