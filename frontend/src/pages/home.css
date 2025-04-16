@@ -1,67 +1,120 @@
-.home-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.starry-bg {
+    background: black;
+    overflow: hidden;
+    position: relative;
     height: 100vh;
-    background-color: #0f172a; /*  change background here */
-    padding-left: 4rem;
+    width: 100%;
+  }
+  
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation-name: twinkle, drift;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes drift {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  .home-container {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
     color: white;
+    max-width: 500px;
   }
   
-  .home-left {
-    max-width: 40%;
-  }
-  
-  .home-title {
+  .title {
     font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  .frameshift {
+    background: linear-gradient(90deg, #fff, #a855f7, #fff);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 4s infinite linear;
   }
   
-  .syn-highlight {
-    color: #6366f1; /* change syn text here */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0%;
+    }
+    100% {
+      background-position: -200% 0%;
+    }
   }
   
-  .home-description {
-    font-size: 1rem;
-    color: #cbd5e1; /* change description color here */
-    margin-bottom: 2rem;
+  .subtitle {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    max-width: 400px;
   }
   
-  .home-buttons {
+  .buttons {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
   }
   
-  .primary-btn {
-    background-color: #6366f1;
+  .camera-btn {
+    background-color: #7c3aed;
     color: white;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
     border: none;
-    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background 0.3s;
   }
   
-  .primary-btn:hover {
-    background-color: #4f46e5; /* button color */
+  .camera-btn:hover {
+    background-color: #6d28d9;
   }
   
-  .secondary-btn {
-    background-color: #e2e8f0; /* button text color */
-    color: #0f172a;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
+  .dash-btn {
+    background-color: white;
+    color: black;
     border: none;
-    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background 0.3s;
   }
   
-  .secondary-btn:hover {
-    background-color: #cbd5e1;
+  .dash-btn:hover {
+    background-color: #f3f3f3;
   }
+  .frameshift {
+  background: linear-gradient(90deg, #fff, #a855f7, #fff);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
   
   
