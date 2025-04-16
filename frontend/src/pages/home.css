@@ -39,23 +39,6 @@
     font-size: 4rem;
     font-weight: bold;
   }
-  .frameshift { /*i am trying to add frameshift here but it doesnt work */
-    background: linear-gradient(90deg, #fff, #a855f7, #fff);
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shimmer 4s infinite linear;
-  }
-  
-  @keyframes shimmer {
-    0% {
-      background-position: 200% 0%;
-    }
-    100% {
-      background-position: -200% 0%;
-    }
-  }
   
   .subtitle {
     font-size: 1.1rem;
@@ -115,6 +98,12 @@
     background-position: -200% 0%;
   }
 }
-
-  
+.rocket {
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    width: 80px;
+    z-index: 10;
+    animation: soar 3s ease-out forwards;
+  }
   
