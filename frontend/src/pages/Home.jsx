@@ -1,22 +1,35 @@
-import Navbar from '../components/Navbar';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./home.css";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="bg-black min-h-screen text-white">
-      <Navbar />
-
-      <main className="flex flex-col justify-center items-center text-center px-4 py-32">
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-          Learn Sign Language <br /> with AI-powered Feedback
-        </h1>
-
-        <p className="mt-6 text-lg text-gray-400 max-w-xl">
-          SYN helps you practice ASL in real-time with instant corrections. Right in your browser.
-        </p>
-      </main>
+    <div className="home-bg min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <h1 className="home-title text-5xl font-bold mb-6 animate-frameshift">
+        Welcome to SYN
+      </h1>
+      <p className="home-subtext text-gray-400 max-w-xl text-lg animate-frameshift delay-200">
+        Learn sign language with real-time AI feedback, live camera tracking,
+        and personalized lessons.
+      </p>
+      
+      <div className="mt-10 flex gap-4 animate-frameshift delay-300">
+        <Link to="/camera">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-lg shadow transition">
+            Try the Camera
+          </button>
+        </Link>
+        <Link to="/">
+          <button className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-3 rounded-lg text-lg shadow transition">
+            Log Out
+          </button>
+        </Link>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
 
 
 

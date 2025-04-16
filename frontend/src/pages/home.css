@@ -1,0 +1,28 @@
+/* stars in background, obvi can be removed if prefered */
+.home-bg {
+    background-color: #0e0e10;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* we can move the frameshift if no one likes it haha */
+  @keyframes frameshift {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-frameshift {
+    animation: frameshift 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-frameshift.delay-200 {
+    animation-delay: 0.2s;
+  }
+  
