@@ -1,0 +1,46 @@
+.camera-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #0f172a; /* dark slate background */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .camera-view {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e293b; /* camera area background */
+    border-right: 2px solid #334155;
+  }
+  
+  .camera-feed {
+    width: 90%;
+    max-width: 960px;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  .camera-feedback {
+    width: 25%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #0f172a;
+  }
+  
+  .camera-feedback h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #a855f7;
+  }
+  
+  .camera-feedback p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #cbd5e1;
+  }
+  

@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import './camera.css';
 
 function Camera() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        videoRef.current.srcObject = stream;
+      })
+      .catch(err => {
+        console.error("Error accessing webcam:", err);
+      });
+  }, []);
+
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-semibold text-gray-800 mb-4">Camera View</h2>
-      <p className="text-gray-600 mb-6">
-         camera and model will go here. 
-      </p>
-      <div className="w-full h-[400px] bg-gray-100 rounded-xl border border-gray-300 flex items-center justify-center text-gray-400">
-        {/* Placeholder for camera feed */}
-        Live Camera Feed Coming Soon
+    <div className="camera-container">
+      <div className="camera-view">
+        <video ref={videoRef} autoPlay playsInline muted className="camera-feed" />
+      </div>
+      <div className="camera-feedback">
+        <h2>Feedback</h2>
+        <p>🤖 Real-time feedback will show here based on your gestures.</p>
       </div>
     </div>
   );
 }
 
 export default Camera;
+
