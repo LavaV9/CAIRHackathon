@@ -1,5 +1,5 @@
 .starry-bg {
-    background: black;
+    background: black; /*star background color change here*/
     overflow: hidden;
     position: relative;
     height: 100vh;
@@ -8,7 +8,7 @@
   
   .star {
     position: absolute;
-    background: white;
+    background: white; /*star colors :)*/
     border-radius: 50%;
     opacity: 0.8;
     animation-name: twinkle, drift;
@@ -39,7 +39,7 @@
     font-size: 4rem;
     font-weight: bold;
   }
-  .frameshift {
+  .frameshift { /*i am trying to add frameshift here but it doesnt work */
     background: linear-gradient(90deg, #fff, #a855f7, #fff);
     background-size: 200% 100%;
     background-clip: text;
