@@ -1,28 +1,67 @@
-/* stars in background, obvi can be removed if prefered */
-.home-bg {
-    background-color: #0e0e10;
-    background-image: radial-gradient(white 1px, transparent 1px);
-    background-size: 20px 20px;
+.home-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #0f172a; /*  change background here */
+    padding-left: 4rem;
+    color: white;
   }
   
-  /* we can move the frameshift if no one likes it haha */
-  @keyframes frameshift {
-    0% {
-      opacity: 0;
-      transform: translateY(20px) scale(0.98);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+  .home-left {
+    max-width: 40%;
   }
   
-  .animate-frameshift {
-    animation: frameshift 0.8s ease-out forwards;
-    opacity: 0;
+  .home-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
   
-  .animate-frameshift.delay-200 {
-    animation-delay: 0.2s;
+  .syn-highlight {
+    color: #6366f1; /* change syn text here */
   }
+  
+  .home-description {
+    font-size: 1rem;
+    color: #cbd5e1; /* change description color here */
+    margin-bottom: 2rem;
+  }
+  
+  .home-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .primary-btn {
+    background-color: #6366f1;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .primary-btn:hover {
+    background-color: #4f46e5; /* button color */
+  }
+  
+  .secondary-btn {
+    background-color: #e2e8f0; /* button text color */
+    color: #0f172a;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .secondary-btn:hover {
+    background-color: #cbd5e1;
+  }
+  
   
