@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.css";
-import rocket from "../assets/cleanpng.png";
+import rocket from "../assets/meowth.png";
 import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
