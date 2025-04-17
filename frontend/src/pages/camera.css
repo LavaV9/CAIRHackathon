@@ -43,4 +43,17 @@
     line-height: 1.5;
     color: #ae73c4;
   }
+  .camera-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+  }
+  
+  .output-canvas {
+    border: 2px solid white;
+    border-radius: 12px;
+  }
+  
   

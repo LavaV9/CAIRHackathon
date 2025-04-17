@@ -7,7 +7,9 @@ function Camera() {
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(stream => {
-        videoRef.current.srcObject = stream;
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
       })
       .catch(err => {
         console.error("Error accessing webcam:", err);
@@ -15,17 +17,21 @@ function Camera() {
   }, []);
 
   return (
-    <div className="camera-container">
-      <div className="camera-view">
+    <div className="camera-page">
+      <div className="camera-left">
         <video ref={videoRef} autoPlay playsInline muted className="camera-feed" />
       </div>
-      <div className="camera-feedback">
-        <h2>Feedback</h2>
-        <p>🤖 Real-time feedback will show here based on your gestures.</p>
+      <div className="camera-right">
+        <h1 className="feedback-title">Live Feedback</h1>
+        <p className="feedback-text">Real-time AI interpretation will appear here as you sign.</p>
+        <div className="feedback-box">
+          <p>🤖 Waiting for input...</p>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Camera;
+
 
