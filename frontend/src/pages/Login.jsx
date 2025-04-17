@@ -39,7 +39,7 @@ const Login = () => {
             <label htmlFor="username" className="block text-base mb-2 text-white">
               Username
             </label>
-            <input type="text" id="username" placeholder="Enter Username..." className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" />
+            <input type="text" id="username" placeholder="email@charlotte.edu..." className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" />
           </div>
 
           <div className="mt-3">
