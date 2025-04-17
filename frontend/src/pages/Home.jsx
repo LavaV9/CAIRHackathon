@@ -1,3 +1,4 @@
+//frameshift can be added anywhere text appears on the homepage, although be catious when adding to buttons since frameshift will remove tje button itself and ONLY keep the text.
 import React from "react";
 import "./home.css";
 import rocket from "../assets/meowth.png";
@@ -42,8 +43,8 @@ function Home() {
           Learn sign language with real-time AI feedback, live camera tracking, and personalized lessons.
         </p>
         <div className="buttons">
-          <button className="camera-btn" onClick={() => navigate("/camera")}>
-            Try the Camera
+          <button className="camera-btn" onClick={() => navigate("/camera")}> 
+            Try the Camera 
           </button>
           <button className="dash-btn" onClick={() => navigate("/dashboard")}>
             Dashboard
