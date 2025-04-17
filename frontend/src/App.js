@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Camera from "./pages/Camera"; // 👈 add this
+import Camera from "./pages/Camera";
+import Dashboard from "./pages/Dashboard"; // add any new pages below this plz
 
 function App() {
   return (
@@ -9,16 +10,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/camera" element={<Camera />} /> {/* 👈 add this */}
-        {/* <Route path="/dashboard" element={<Dashboard />} /> later maybe */}
+        <Route path="/camera" element={<Camera />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
 
 
 
