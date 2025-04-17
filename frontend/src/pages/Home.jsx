@@ -29,8 +29,13 @@ function Home() {
   return (
     <div className="starry-bg">
       {stars}
+      
+      <button className="logout-btn" onClick={() => navigate("/")}>
+        Log Out
+      </button>
+  
       <div className="home-container">
-        <h1 className="title">Welcome to SYN</h1>
+        <h1 className="frameshift title">Welcome to SYN</h1>
         <p className="subtitle">
           Learn sign language with real-time AI feedback, live camera tracking, and personalized lessons.
         </p>

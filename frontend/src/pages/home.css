@@ -106,4 +106,24 @@
     z-index: 10;
     animation: soar 3s ease-out forwards;
   }
+  .logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 99;
+    transition: all 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: white;
+    color: black;
+  }
+  
   
