@@ -55,5 +55,27 @@
     border: 2px solid white;
     border-radius: 12px;
   }
-  
+  .camera-feed,
+.camera-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75vw;
+  height: 100vh;
+}
+
+.camera-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.camera-feedback {
+  width: 25vw;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
   
