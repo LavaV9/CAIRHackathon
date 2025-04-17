@@ -1,0 +1,72 @@
+.dashboard-container {
+    background-color: black;
+    min-height: 100vh;
+    color: white;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+  }
+  
+  .dashboard-header {
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  
+  .frameshift {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #fff, #a855f7, #fff);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 4s infinite linear;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0%;
+    }
+    100% {
+      background-position: -200% 0%;
+    }
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #cbd5e1;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .card {
+    background-color: #1e1e2f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a855f7;
+  }
+  
+  .card ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+  }
+  
+  .card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .next-up {
+    background-color: #292943;
+  }
+  
