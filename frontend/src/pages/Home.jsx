@@ -1,5 +1,6 @@
 import React from "react";
 import "./home.css";
+import rocket from "../assets/cleanpng.png";
 import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
@@ -29,11 +30,12 @@ function Home() {
   return (
     <div className="starry-bg">
       {stars}
-      
+      <img src={rocket} alt="rocket" className="rocket" />
+
       <button className="logout-btn" onClick={() => navigate("/")}>
         Log Out
       </button>
-  
+   
       <div className="home-container">
         <h1 className="frameshift title">Welcome to SYN</h1>
         <p className="subtitle">

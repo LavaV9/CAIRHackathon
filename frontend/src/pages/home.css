@@ -125,5 +125,28 @@
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
   }
+  .rocket {
+    position: absolute;
+    bottom: 40px;
+    left: -100px;
+    width: 60px;
+    animation: soar 6s ease-out forwards;
+    z-index: 10;
+  }
+  
+  @keyframes soar {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(50vw) translateY(-20vh) rotate(30deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120vw) translateY(-100vh) rotate(60deg);
+      opacity: 0;
+    }
+  }
   
   
