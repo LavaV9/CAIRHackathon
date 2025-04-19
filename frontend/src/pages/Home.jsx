@@ -38,7 +38,7 @@ function Home() {
       </button>
    
       <div className="home-container">
-        <h1 className="frameshift title">Welcome to SYN</h1>
+        <h1 className="frameshift title">Welcome to FYN</h1>
         <p className="subtitle">
           Learn sign language with real-time AI feedback, live camera tracking, and personalized lessons.
         </p>

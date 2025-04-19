@@ -31,7 +31,7 @@ const Login = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="w-96 p-6 shadow-lg login-box rounded-md">
           <h1 className="text-3xl block text-center font-semibold text-white">
-            <i className="fa-solid fa-user"></i> Login to SYN
+            <i className="fa-solid fa-user"></i> Login to FYN
           </h1>
           <hr className="mt-3" />
 
