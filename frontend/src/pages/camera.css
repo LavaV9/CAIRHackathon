@@ -77,5 +77,11 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
 }
+.prediction-display {
+  font-size: 1.2rem;
+  color: #c7b8ff;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
   
