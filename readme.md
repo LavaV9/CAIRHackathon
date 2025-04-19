@@ -1,7 +1,6 @@
-# SYN Frontend
+# FYN Frontend
 
-This is the frontend for SYN; a web app built to help users learn and translate sign language using a camera interface, live feedback, and a clean, space-inspired UI.
-
+This is the frontend for FYN; a web app built to help users do push ups the fyn way
 ---
 
 ## What’s Been Built
@@ -17,7 +16,7 @@ This is the frontend for SYN; a web app built to help users learn and translate 
 - Placeholder for user account creation
 
 ### Home Page
-- Large animated “Welcome to SYN” title using shimmer (frameshift) animation
+- Large animated “Welcome to FYN” title using shimmer (frameshift) animation
 - Starry, animated background with layered visual depth
 - Buttons for “Try the Camera” and “Dashboard”
 
