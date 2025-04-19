@@ -1,4 +1,3 @@
-/*original in md files*/
 body {
   margin: 0;
   padding: 0;
@@ -34,13 +33,7 @@ body {
   100% { transform: translateY(-10px); }
 }
 
-/* 💻 Login box styles */
-.login-box {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* 📦 Login + Signup box styles */
 .text-indigo-800 {
   color: #c7b8ff;
 }
@@ -102,5 +95,6 @@ body {
 .focus\:outline-none:focus { outline: none; }
 .focus\:ring-0:focus       { box-shadow: none; }
 .focus\:border-gray-600:focus { border-color: #4b5563; }
+
 
   
