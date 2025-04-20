@@ -11,23 +11,23 @@ const Dashboard = () => {
 
       <div className="dashboard-content">
         <div className="card">
-          <h2>History: Terms Used</h2>
+          <h2>History: Learned</h2>
           <ul>
-            <li>Hello</li>
-            <li>Thank you</li>
-            <li>Goodbye</li>
-            <li>Yes</li>
-            <li>No</li>
+            <li>A</li>
+            <li>B</li>
+            <li>G</li>
+            <li>C</li>
+            <li>D</li>
           </ul>
         </div>
 
         <div className="card">
-          <h2>History: Terms Learned</h2>
+          <h2>History: Learned</h2>
           <ul>
-            <li>Please</li>
-            <li>Help</li>
-            <li>Sorry</li>
-            <li>Where</li>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
           </ul>
         </div>
 

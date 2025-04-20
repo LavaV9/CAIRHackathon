@@ -44,7 +44,7 @@ function Camera() {
     });
 
     hands.setOptions({
-      maxNumHands: 1,
+      maxNumHands: 2,
       modelComplexity: 1,
       minDetectionConfidence: 0.8,
       minTrackingConfidence: 0.8,
@@ -109,8 +109,8 @@ function Camera() {
         <canvas ref={canvasRef} className="camera-overlay" width="640" height="480" />
       </div>
       <div className="camera-feedback">
-        <h2>Feedback</h2>
-        <p>🤖 Prediction: {prediction}</p>
+        <h2>Throw A Letter Up</h2>
+        <p>🤖 Letter: {prediction}</p>
       </div>
     </div>
   );
