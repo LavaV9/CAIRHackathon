@@ -1,32 +1,32 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
-import tensorflow as tf
+import joblib
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
-# Load your model
-model = tf.keras.models.load_model("model.h5")
+# Load your trained model and label encoder
+model = joblib.load("asl_model.joblib")
+label_encoder = joblib.load("label_encoder.joblib")
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    print("RECEIVED DATA:", data)  # Debugging
-    landmarks = data.get("landmarks")
+    try:
+        data = request.get_json()
+        landmarks = data.get("landmarks")
 
-    if not landmarks:
-        return jsonify({"error": "No landmarks provided"}), 400
+        # Flatten the 21x3 landmark array to 63-length
+        if not landmarks or len(landmarks) != 21 or len(landmarks[0]) != 3:
+            return jsonify({"error": "Invalid landmark format"}), 400
 
-    # Preprocess landmarks
-    landmarks = np.array(landmarks).flatten().reshape(1, -1)
+        flattened = np.array(landmarks).flatten().reshape(1, -1)
+        class_index = model.predict(flattened)[0]
+        class_label = label_encoder.inverse_transform([class_index])[0]
 
-    prediction = model.predict(landmarks)
-    predicted_class = np.argmax(prediction)
-
-    return jsonify({"prediction": int(predicted_class)})
+        return jsonify({"prediction": class_label})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    app.run(debug=True, port=5000)
