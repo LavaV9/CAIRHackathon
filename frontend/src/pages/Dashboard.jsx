@@ -28,7 +28,7 @@ const Dashboard = () => {
           <iframe 
             width="100%" 
             height="215" 
-            src="https://www.youtube.com/embed/3M7Fq3XL6kM" 
+            src="https://www.youtube.com/watch?v=6w1ZDaE-whc" 
             title="Learn ASL Alphabet" 
             frameBorder="0" 
             allowFullScreen
@@ -40,7 +40,7 @@ const Dashboard = () => {
           <iframe 
             width="100%" 
             height="215" 
-            src="https://www.youtube.com/embed/3P-Z7gVgmkk" 
+            src="https://www.youtube.com/watch?v=0FcwzMq4iWg&pp=ygUSMjUgYmFzaWMgYXNsIHNpZ25z" 
             title="25 Basic ASL Phrases" 
             frameBorder="0" 
             allowFullScreen
