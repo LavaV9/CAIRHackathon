@@ -109,7 +109,7 @@ function Camera() {
         <canvas ref={canvasRef} className="camera-overlay" width="640" height="480" />
       </div>
       <div className="camera-feedback">
-        <h2>Throw A Letter Up</h2>
+        <h2>Make A SYN</h2>
         <p>🤖 Letter: {prediction}</p>
       </div>
     </div>

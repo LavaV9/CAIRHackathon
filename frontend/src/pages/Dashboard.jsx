@@ -1,39 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { supabase } from "../supabase";
 import "./dashboard.css";
 
 const Dashboard = () => {
+  const [userEmail, setUserEmail] = useState("");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUserEmail(user.email);
+      }
+    };
+    fetchUser();
+  }, []);
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1 className="frameshift">Your Dashboard</h1>
-        <p className="subtitle">Track your progress, review what you've learned, and see what’s next!</p>
+        <h1 className="frameshift">Welcome, {userEmail || "Loading..."}</h1>
+        <p className="subtitle">Learn and improve your ASL skills!</p>
       </div>
 
       <div className="dashboard-content">
         <div className="card">
-          <h2>History: Learned</h2>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>G</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
+          <h2>Getting Started with ASL</h2>
+          <iframe 
+            width="100%" 
+            height="215" 
+            src="https://www.youtube.com/embed/3M7Fq3XL6kM" 
+            title="Learn ASL Alphabet" 
+            frameBorder="0" 
+            allowFullScreen
+          ></iframe>
         </div>
 
         <div className="card">
-          <h2>History: Learned</h2>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </div>
-
-        <div className="card next-up">
-          <h2>What to Learn Next</h2>
-          <p>Personalized suggestions coming soon based on your activity!</p>
+          <h2>More ASL Phrases</h2>
+          <iframe 
+            width="100%" 
+            height="215" 
+            src="https://www.youtube.com/embed/3P-Z7gVgmkk" 
+            title="25 Basic ASL Phrases" 
+            frameBorder="0" 
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>
