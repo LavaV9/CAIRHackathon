@@ -4,14 +4,36 @@ import "./camera.css";
 function Camera() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState("Waiting for input...");
+
+  const sendPredictionRequest = async (landmarkArray) => {
+    if (!landmarkArray || landmarkArray.length === 0) {
+      console.warn("No landmarks to send.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ landmarks: landmarkArray }),
+      });
+
+      const data = await res.json();
+      setPrediction(data.prediction);
+    } catch (err) {
+      console.error("Prediction error:", err);
+    }
+  };
 
   useEffect(() => {
     const videoElement = videoRef.current;
     const canvasElement = canvasRef.current;
     const canvasCtx = canvasElement.getContext("2d");
 
-    if (!window.Hands || !window.Camera) {
+    if (!window.Hands || !window.Camera || !window.drawConnectors) {
       console.error("MediaPipe scripts not loaded!");
       return;
     }
@@ -24,8 +46,8 @@ function Camera() {
     hands.setOptions({
       maxNumHands: 1,
       modelComplexity: 1,
-      minDetectionConfidence: 0.7,
-      minTrackingConfidence: 0.7,
+      minDetectionConfidence: 0.8,
+      minTrackingConfidence: 0.8,
     });
 
     hands.onResults((results) => {
@@ -43,24 +65,15 @@ function Camera() {
         for (const landmarks of results.multiHandLandmarks) {
           window.drawConnectors(canvasCtx, landmarks, window.HAND_CONNECTIONS, {
             color: "#00FF00",
-            lineWidth: 2,
+            lineWidth: 3,
           });
           window.drawLandmarks(canvasCtx, landmarks, {
             color: "#FF0000",
-            lineWidth: 1,
+            lineWidth: 2,
           });
 
-          // 🎯 Send landmarks to backend (you can enhance this)
-          fetch("http://localhost:5000/predict", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ landmarks }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              setPrediction(data.prediction);
-            })
-            .catch((err) => console.error("Prediction error:", err));
+          const landmarkArray = landmarks.map(p => [p.x, p.y, p.z]);
+          sendPredictionRequest(landmarkArray);
         }
       }
 
@@ -70,15 +83,20 @@ function Camera() {
     const startCamera = async () => {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       videoElement.srcObject = stream;
-      videoElement.play();
 
-      new window.Camera(videoElement, {
-        onFrame: async () => {
-          await hands.send({ image: videoElement });
-        },
-        width: 640,
-        height: 480,
-      }).start();
+      videoElement.onloadedmetadata = () => {
+        videoElement.play();
+
+        const camera = new window.Camera(videoElement, {
+          onFrame: async () => {
+            await hands.send({ image: videoElement });
+          },
+          width: 640,
+          height: 480,
+        });
+
+        camera.start();
+      };
     };
 
     startCamera();
@@ -86,16 +104,25 @@ function Camera() {
 
   return (
     <div className="camera-container">
-      <video ref={videoRef} className="camera-feed" playsInline autoPlay muted />
-      <canvas ref={canvasRef} className="camera-overlay" width="640" height="480" />
+      <div className="camera-view">
+        <video ref={videoRef} className="camera-feed" playsInline autoPlay muted />
+        <canvas ref={canvasRef} className="camera-overlay" width="640" height="480" />
+      </div>
       <div className="camera-feedback">
         <h2>Feedback</h2>
-        <p>🤖 Prediction: {prediction || "Waiting for input..."}</p>
+        <p>🤖 Prediction: {prediction}</p>
       </div>
     </div>
   );
 }
 
 export default Camera;
+
+
+
+
+
+
+
 
 

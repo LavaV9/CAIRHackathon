@@ -1,32 +1,32 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
-# Load the model
-model = tf.keras.models.load_model("best_model.h5")
+# Load your model
+model = tf.keras.models.load_model("model.h5")
 
-# Prediction route
 @app.route("/predict", methods=["POST"])
 def predict():
-    try:
-        data = request.get_json()
-        landmarks = data.get("landmarks")  # Expecting a flat list of 63 floats (21 points × 3 coords)
+    data = request.get_json()
+    print("RECEIVED DATA:", data)  # Debugging
+    landmarks = data.get("landmarks")
 
-        if not landmarks or len(landmarks) != 63:
-            return jsonify({"error": "Invalid input"}), 400
+    if not landmarks:
+        return jsonify({"error": "No landmarks provided"}), 400
 
-        input_array = np.array(landmarks).reshape(1, 63)
-        prediction = model.predict(input_array)
-        predicted_class = np.argmax(prediction)
+    # Preprocess landmarks
+    landmarks = np.array(landmarks).flatten().reshape(1, -1)
 
-        return jsonify({"prediction": int(predicted_class)})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    prediction = model.predict(landmarks)
+    predicted_class = np.argmax(prediction)
+
+    return jsonify({"prediction": int(predicted_class)})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
+
 

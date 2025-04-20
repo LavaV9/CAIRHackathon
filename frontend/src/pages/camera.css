@@ -1,87 +1,62 @@
 .camera-container {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    background-color: #0f172a; /* dark slate background */
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .camera-view {
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1e293b; /* camera area background */
-    border-right: 2px solid #334155;
-  }
-  
-  .camera-feed {
-    width: 90%;
-    max-width: 960px;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  }
-  
-  .camera-feedback {
-    width: 25%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #0f172a;
-  }
-  
-  .camera-feedback h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
-  }
-  
-  .camera-feedback p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #ae73c4;
-  }
-  .camera-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    height: 100vh;
-  }
-  
-  .output-canvas {
-    border: 2px solid white;
-    border-radius: 12px;
-  }
-  .camera-feed,
-.camera-canvas {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: #0f172a;
+  color: white;
+  position: relative;
+}
+
+.camera-view {
+  width: 75%;
+  position: relative;
+  background-color: #1e293b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-feed,
+.camera-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 75vw;
-  height: 100vh;
+  width: 640px;
+  height: 480px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
-.camera-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.camera-overlay {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.camera-feed {
+  z-index: 1;
 }
 
 .camera-feedback {
-  width: 25vw;
-  padding: 1rem;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 25%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #0f172a;
 }
-.prediction-display {
-  font-size: 1.2rem;
-  color: #c7b8ff;
-  font-weight: bold;
-  margin-top: 10px;
+
+.camera-feedback h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
+
+.camera-feedback p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ae73c4;
+}
+
+
 
   
