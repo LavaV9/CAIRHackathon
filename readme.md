@@ -1,6 +1,6 @@
 # SYN Frontend
 
-This is the frontend for SYN; a web app built to help users do push ups the fyn way
+This is the frontend for SYN; a web app built to help users learn SSYN
 ---
 
 ## What’s Been Built
