@@ -1,4 +1,5 @@
 # SYN Frontend
+🏆 FIRST PLACE HACKATHON WINNER Charlotte AI Research 2025 🏆
 
 This is the frontend for SYN; a web app built to help users learn SSYN
 ---
